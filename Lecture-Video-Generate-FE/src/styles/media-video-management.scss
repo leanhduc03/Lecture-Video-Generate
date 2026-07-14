@@ -1,0 +1,342 @@
+.media-video-management {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  // Header section
+  header {
+    margin-bottom: 24px;
+
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--text-light);
+      letter-spacing: -0.025em;
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--text-dark);
+      }
+    }
+
+    p {
+      margin-top: 8px;
+      color: var(--text-muted-light);
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--text-muted-dark);
+      }
+    }
+  }
+
+  // Error message
+  .error-message {
+    margin-top: 16px;
+  }
+
+  // Stats section
+  .stats-section {
+    margin-top: 24px;
+
+    .ant-card {
+      background-color: var(--surface-light);
+      border-color: var(--border-light);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--surface-dark);
+        border-color: var(--border-dark);
+      }
+
+      .stats-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .stats-info {
+          p {
+            margin: 0;
+
+            &:first-child {
+              font-size: 0.875rem;
+              font-weight: 500;
+              color: var(--text-muted-light);
+
+              @media (prefers-color-scheme: dark) {
+                color: var(--text-muted-dark);
+              }
+            }
+
+            &:last-child {
+              margin-top: 4px;
+              font-size: 1.5rem;
+              font-weight: 700;
+              color: var(--text-light);
+
+              @media (prefers-color-scheme: dark) {
+                color: var(--text-dark);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Table section
+  .table-section {
+    margin-top: 32px;
+
+    .ant-card {
+      background-color: var(--surface-light);
+      border-color: var(--border-light);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--surface-dark);
+        border-color: var(--border-dark);
+      }
+    }
+
+    .ant-table {
+      background-color: transparent;
+
+      .ant-table-thead > tr > th {
+        background-color: var(--bg-light);
+        color: var(--text-light);
+        border-bottom-color: var(--border-light);
+        font-weight: 600;
+
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--bg-dark);
+          color: var(--text-dark);
+          border-bottom-color: var(--border-dark);
+        }
+      }
+
+      .ant-table-tbody > tr {
+        &:hover > td {
+          background-color: rgba(0, 0, 0, 0.02);
+
+          @media (prefers-color-scheme: dark) {
+            background-color: rgba(255, 255, 255, 0.05);
+          }
+        }
+
+        > td {
+          border-bottom-color: var(--border-light);
+          color: var(--text-light);
+
+          @media (prefers-color-scheme: dark) {
+            border-bottom-color: var(--border-dark);
+            color: var(--text-dark);
+          }
+        }
+      }
+    }
+  }
+
+  // Video preview
+  .video-preview {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--border-dark);
+    }
+  }
+
+  // Type badge (thay thế status badge)
+  .type-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    &.sample {
+      background-color: #e6f7ff;
+      color: #1890ff;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: rgba(24, 144, 255, 0.2);
+        color: #40a9ff;
+      }
+    }
+
+    &.uploaded {
+      background-color: #f6ffed;
+      color: #52c41a;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: rgba(82, 196, 26, 0.2);
+        color: #73d13d;
+      }
+    }
+  }
+
+  // Loading state
+  .loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 256px;
+  }
+
+  // Empty state
+  .empty-state {
+    text-align: center;
+    padding: 48px 24px;
+
+    .ant-empty-description {
+      color: var(--text-muted-light);
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--text-muted-dark);
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    header h2 {
+      font-size: 1.5rem;
+    }
+
+    .stats-section,
+    .table-section {
+      margin-top: 16px;
+    }
+
+    .video-preview {
+      max-width: 100%;
+    }
+  }
+}
+
+// Modal styling
+.media-video-modal {
+  .ant-modal-content {
+    background-color: #ffffff !important;
+  }
+
+  .ant-modal-header {
+    background-color: #ffffff !important;
+
+    .ant-modal-title {
+      color: #000000 !important;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  .ant-modal-body {
+    background-color: #ffffff !important;
+  }
+
+  .ant-form {
+    .ant-form-item-label > label {
+      color: #000000 !important;
+      font-weight: 500;
+    }
+
+    .ant-input,
+    .ant-select-selector {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+      border-color: #d9d9d9;
+
+      &:focus,
+      &:hover {
+        border-color: #1890ff;
+      }
+    }
+  }
+
+  .upload-section {
+    border: 2px dashed #d9d9d9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fafafa;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: #1890ff;
+      background-color: #f0f5ff;
+    }
+
+    .ant-btn {
+      margin-top: 8px;
+    }
+  }
+
+  .video-preview-container {
+    margin-top: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #d9d9d9;
+
+    video {
+      width: 100%;
+      max-height: 300px;
+      display: block;
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 0;
+    justify-content: flex-end;
+  }
+}
+
+// Ant Design overrides
+.ant-modal {
+  .ant-modal-content {
+    background-color: var(--surface-light);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--surface-dark);
+    }
+  }
+
+  .ant-modal-header {
+    background-color: var(--surface-light);
+    border-bottom-color: var(--border-light);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--surface-dark);
+      border-bottom-color: var(--border-dark);
+    }
+
+    .ant-modal-title {
+      color: var(--text-light);
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--text-dark);
+      }
+    }
+  }
+
+  .ant-modal-body {
+    color: var(--text-light);
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--text-dark);
+    }
+  }
+
+  .ant-modal-footer {
+    border-top-color: var(--border-light);
+
+    @media (prefers-color-scheme: dark) {
+      border-top-color: var(--border-dark);
+    }
+  }
+}

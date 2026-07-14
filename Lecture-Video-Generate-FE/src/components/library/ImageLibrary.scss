@@ -1,0 +1,648 @@
+// ImageLibrary Component Styles - Modern Design
+// Matching re.html design with purple theme
+
+// Variables
+$primary: #8B5CF6;
+$primary-dark: #7C3AED;
+$primary-light: #DDD6FE;
+$secondary: #A855F7;
+$background-light: #F3F4F6;
+$surface-light: #FFFFFF;
+$border-light: #E5E7EB;
+$text-gray-900: #111827;
+$text-gray-600: #4B5563;
+$text-gray-500: #6B7280;
+$text-gray-400: #9CA3AF;
+$green-500: #10B981;
+$red-500: #EF4444;
+
+// Mixins
+@mixin transition($property: all, $duration: 0.3s) {
+  transition: $property $duration ease;
+}
+
+@mixin hover-shadow {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+// Main Container
+.image-library {
+  background: #FFFFFF;
+  border-radius: 1.5rem;
+  
+  .library-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .header-icon {
+        font-size: 2rem;
+        color: $primary;
+      }
+
+      div {
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: $text-gray-900;
+          margin: 0;
+        }
+
+        p {
+          font-size: 0.875rem;
+          color: $text-gray-500;
+          margin: 0.25rem 0 0 0;
+        }
+      }
+    }
+
+    .upload-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.5rem;
+      background: $primary;
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      @include transition;
+      box-shadow: 0 10px 15px -3px rgba($primary, 0.3);
+      margin-left: auto;
+
+      &:hover {
+        background: $primary-dark;
+        box-shadow: 0 10px 15px -3px rgba($primary, 0.5);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      svg {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  // Error Banner
+  .error-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: #FEE2E2;
+    border: 1px solid #FECACA;
+    border-radius: 0.75rem;
+    color: #991B1B;
+    margin-bottom: 1.5rem;
+
+    button {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #991B1B;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // Loading State
+  .library-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    gap: 1.5rem;
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid $primary-light;
+      border-top-color: $primary;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    p {
+      font-size: 1rem;
+      color: $text-gray-600;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  // Empty State
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    text-align: center;
+    padding: 2rem;
+
+    .empty-icon {
+      font-size: 5rem;
+      color: $text-gray-400;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $text-gray-900;
+      margin: 0 0 0.5rem 0;
+    }
+
+    p {
+      font-size: 1rem;
+      color: $text-gray-500;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .upload-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      background: $primary;
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      @include transition;
+      box-shadow: 0 10px 15px -3px rgba($primary, 0.3);
+
+      &:hover {
+        background: $primary-dark;
+        box-shadow: 0 10px 15px -3px rgba($primary, 0.5);
+        transform: translateY(-2px);
+      }
+
+      svg {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  // Images Grid
+  .images-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    // Upload Card
+    .upload-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 240px;
+      border: 2px dashed rgba($primary, 0.3);
+      border-radius: 1.5rem;
+      background: transparent;
+      cursor: pointer;
+      @include transition;
+      position: relative;
+
+      &:hover {
+        border-color: $primary;
+        background: rgba($primary, 0.05);
+
+        .upload-icon-wrapper {
+          transform: scale(1.1);
+        }
+
+        h3 {
+          color: $primary;
+        }
+      }
+
+      .upload-icon-wrapper {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background: rgba($primary, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        @include transition(transform);
+
+        svg {
+          font-size: 1.875rem;
+          color: $primary;
+        }
+      }
+
+      h3 {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: $text-gray-900;
+        margin: 0 0 0.25rem 0;
+        @include transition(color);
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: $text-gray-500;
+        text-align: center;
+        padding: 0 1rem;
+        margin: 0 0 1.5rem 0;
+      }
+
+      .upload-btn-card {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1.5rem;
+        background: $primary;
+        color: white;
+        border: none;
+        border-radius: 9999px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        cursor: pointer;
+        @include transition;
+        box-shadow: 0 10px 15px -3px rgba($primary, 0.3);
+
+        &:hover {
+          background: $primary-dark;
+          box-shadow: 0 10px 15px -3px rgba($primary, 0.5);
+        }
+      }
+    }
+
+    // Image Card
+    .image-card {
+      position: relative;
+      background: $surface-light;
+      border-radius: 1.5rem;
+      padding: 0.75rem;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      @include transition;
+      border: 1px solid transparent;
+
+      &:hover {
+        @include hover-shadow;
+        border-color: rgba($primary, 0.2);
+
+        .image-overlay {
+          opacity: 1;
+        }
+
+        .file-size {
+          opacity: 1;
+        }
+      }
+
+      .image-wrapper {
+        position: relative;
+        aspect-ratio: 4/3;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 1rem;
+        background: $background-light;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          @include transition(transform, 0.5s);
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+
+        .image-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(2px);
+          opacity: 0;
+          @include transition(opacity, 0.2s);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 0.75rem;
+
+          .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            transform: translateY(1rem);
+            @include transition(transform, 0.3s);
+
+            .action-btn {
+              width: 2.5rem;
+              height: 2.5rem;
+              background: white;
+              color: $text-gray-900;
+              border: none;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              @include transition;
+              box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+              &:hover {
+                background: $primary;
+                color: white;
+              }
+
+              &.delete-action {
+                color: $red-500;
+
+                &:hover {
+                  background: $red-500;
+                  color: white;
+                }
+              }
+
+              svg {
+                font-size: 1.25rem;
+              }
+            }
+          }
+        }
+
+        &:hover .action-buttons {
+          transform: translateY(0);
+        }
+
+        .file-size {
+          position: absolute;
+          top: 0.75rem;
+          right: 0.75rem;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(12px);
+          color: white;
+          font-size: 0.625rem;
+          font-weight: 700;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.375rem;
+          opacity: 0;
+          @include transition(opacity);
+        }
+      }
+
+      .image-info {
+        margin-top: 1rem;
+        padding: 0 0.25rem 0.25rem;
+
+        .info-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 0.5rem;
+
+          .image-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: $text-gray-900;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1;
+          }
+
+          .more-btn {
+            background: none;
+            border: none;
+            color: $text-gray-400;
+            cursor: pointer;
+            padding: 0;
+            @include transition;
+
+            &:hover {
+              color: $primary;
+            }
+
+            svg {
+              font-size: 1rem;
+            }
+          }
+        }
+
+        .image-date {
+          display: flex;
+          align-items: center;
+          gap: 0.375rem;
+          margin-top: 0.25rem;
+          font-size: 0.75rem;
+          color: $text-gray-500;
+
+          .status-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: $green-500;
+          }
+
+          .separator {
+            color: $border-light;
+          }
+        }
+      }
+
+      .delete-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 2rem;
+        height: 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        border: none;
+        border-radius: 50%;
+        color: $red-500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        @include transition;
+        z-index: 10;
+
+        &:hover {
+          background: $red-500;
+          color: white;
+          transform: scale(1.1);
+        }
+
+        svg {
+          font-size: 1.125rem;
+        }
+      }
+
+      &:hover .delete-btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Preview Modal
+  .preview-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+
+    .preview-content {
+      background: $surface-light;
+      border-radius: 1.5rem;
+      max-width: 56rem;
+      width: 100%;
+      max-height: 90vh;
+      overflow: auto;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+      .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        @include transition;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+
+        &:hover {
+          background: $background-light;
+          transform: scale(1.1);
+        }
+
+        svg {
+          font-size: 1.5rem;
+          color: $text-gray-900;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 1.5rem 1.5rem 0 0;
+      }
+
+      .preview-info {
+        padding: 2rem;
+
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: $text-gray-900;
+          margin: 0 0 0.5rem 0;
+        }
+
+        > p {
+          font-size: 0.875rem;
+          color: $text-gray-600;
+          margin: 0 0 1.5rem 0;
+        }
+
+        .preview-actions {
+          display: flex;
+          gap: 0.75rem;
+          flex-wrap: wrap;
+
+          .btn-view,
+          .btn-delete {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            @include transition;
+            text-decoration: none;
+          }
+
+          .btn-view {
+            background: $primary;
+            color: white;
+
+            &:hover {
+              background: $primary-dark;
+            }
+          }
+
+          .btn-delete {
+            background: $background-light;
+            color: $red-500;
+
+            &:hover {
+              background: $red-500;
+              color: white;
+            }
+
+            svg {
+              font-size: 1.125rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

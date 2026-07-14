@@ -1,0 +1,280 @@
+.dashboard > * + * {
+    margin-top: 2.5rem;
+}
+
+.board {
+    text-align: center;
+    .board-title {
+        font-size: 1.875rem;  
+        line-height: 2.25rem;    
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.025em;
+        @media (min-width: 768px) {
+            font-size: 2.25rem;    
+            line-height: 2.5rem;
+        }
+    }
+    .board-content {
+        margin-top: 0.75rem;            
+        font-size: 1.125rem;           
+        line-height: 1.75rem;        
+        color: #475569;
+        max-width: 42rem;            
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.main-card {
+    background-image: linear-gradient(to bottom right, var(--color-primary));
+    color: var(--white);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -2px rgb(0 0 0 / 0.05);
+    @media (min-width: 768px) {
+        padding: 3rem;
+    }
+    .main-card-content {
+        max-width: 48rem; 
+        margin-left: auto; 
+        margin-right: auto; 
+        .icon-movie {
+            font-size: 3rem;      
+            opacity: 0.8;       
+            margin-bottom: 1rem;  
+            display: inline-block;
+        }
+        .card-heading {
+            font-size: 1.5rem;     
+            line-height: 2rem;     
+            font-weight: 700;
+            margin-bottom: 0.5rem;  
+            @media (min-width: 768px) {
+                font-size: 1.875rem;  
+                line-height: 2.25rem;  
+            }
+        }
+        .card-description {
+            font-size: 1.125rem;    
+            line-height: 1.75rem;   
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .card-btn {
+            background-color: var(--white);
+            color: var(--bg-btn-primary);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            box-shadow:
+                0 4px 6px -1px rgba(15, 23, 42, 0.1),
+                0 2px 4px -2px rgba(15, 23, 42, 0.1);
+
+            border: none;
+            cursor: pointer;
+            transition: all 150ms ease-out;
+            &:hover {
+                background-color: #f1f5f9;
+                transform: scale(1.05);
+            }
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.75);
+            }
+        }
+    }
+}
+
+.second-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card {
+        background-color: var(--white);
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid #e2e8f0;
+        .card-header {
+            display: flex;
+            align-items: center;   
+            gap: 1rem;            
+            margin-bottom: 1rem;
+            .icon-wrapper {
+                background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+                padding: 0.75rem;
+                border-radius: 0.5rem; 
+                .icon-card {
+                    font-size: 1.875rem;
+                    line-height: 2.25rem;
+                    color: var(--bg-btn-primary);
+                }
+            }
+            .card-header-text {
+                font-size: 1.25rem;     
+                line-height: 1.75rem;    
+                font-weight: 600;
+                color: #0f172a;
+            }
+        }
+        .card-description {
+            color: #475569;
+            margin-bottom: 1.5rem;  
+            flex-grow: 1;
+        }
+        .btn-secondary {
+            width: 100%;
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 150ms ease, color 150ms ease;
+            @media (min-width: 640px) {
+                width: auto;
+            }
+            &:hover {
+                background-color: #e2e8f0;
+            }
+        }
+    }
+}
+
+/* Modal Styles - Compact Version */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.animate-popUp {
+  animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-dialog {
+  background: var(--white);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 24rem;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  .modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding-right: 1.5rem;
+  }
+
+  .modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .modal-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.5rem;
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      width: 100%;
+
+      &:hover {
+        border-color: var(--bg-btn-primary);
+        background: #f8f9ff;
+        transform: translateX(4px);
+      }
+
+      .option-icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .option-text {
+        font-size: 0.938rem;
+        font-weight: 500;
+        color: #333;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    width: 20rem;
+    padding: 1.25rem;
+  }
+}

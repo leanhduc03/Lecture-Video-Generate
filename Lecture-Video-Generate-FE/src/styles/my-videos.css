@@ -1,0 +1,201 @@
+.my-videos-page {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 16px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 28px;
+}
+
+.video-count {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #666;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #666;
+  margin: 8px 0;
+}
+
+.empty-state .hint {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.videos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.videos-table thead {
+  background: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+}
+
+.videos-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+.videos-table tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.videos-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.videos-table td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Video Thumbnail */
+.video-preview-cell {
+  width: 280px;
+  max-width: 280px;
+}
+
+.video-thumbnail {
+  width: 260px;
+  height: 146px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  display: block;
+}
+
+/* Action Buttons */
+.actions-cell {
+  width: 180px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-download {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-download:hover {
+  background: #45a049;
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #da190b;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .video-thumbnail {
+    width: 200px;
+    height: 112px;
+  }
+  
+  .video-preview-cell {
+    width: 220px;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-videos-page {
+    padding: 12px;
+  }
+  
+  .videos-table {
+    font-size: 12px;
+  }
+  
+  .videos-table th,
+  .videos-table td {
+    padding: 8px;
+  }
+  
+  .video-thumbnail {
+    width: 160px;
+    height: 90px;
+  }
+  
+  .video-preview-cell {
+    width: 180px;
+    max-width: 180px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

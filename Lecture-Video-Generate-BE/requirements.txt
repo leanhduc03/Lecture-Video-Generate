@@ -1,0 +1,42 @@
+# Core FastAPI
+fastapi==0.104.1
+uvicorn[standard]==0.23.2
+python-multipart==0.0.6
+
+# Pydantic & Settings
+pydantic==2.4.2
+pydantic-settings==2.0.3
+
+# Database
+sqlmodel==0.0.14
+mysql-connector-python==8.2.0
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+
+# Email
+email-validator==2.0.0
+
+# HTTP Requests
+requests==2.31.0
+httpx==0.25.0
+
+# Cloud Storage
+cloudinary==1.36.0
+
+# PowerPoint & Image Processing
+python-pptx==0.6.21
+Pillow==10.4.0
+pdf2image==1.16.3
+pypdf2==3.0.1
+
+# Google Generative AI (Gemini)
+google-generativeai==0.3.1
+
+# Utilities
+python-dotenv==1.0.0
+
+# Aspose
+aspose-slides==24.11.0

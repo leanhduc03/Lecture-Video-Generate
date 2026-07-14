@@ -1,0 +1,266 @@
+.register-panel {
+  width: 100%;
+  max-width: 28rem; 
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  position: relative;
+}
+
+.register-panel::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(219, 39, 119, 0.2));
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.register-panel__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-panel__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.register-panel__icon {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  color: rgb(147, 51, 234); // Purple-600
+  background: linear-gradient(135deg, rgb(147, 51, 234), rgb(219, 39, 119));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.3s ease;
+}
+
+.register-panel__logo-text {
+  font-weight: 700;
+  font-size: 1.875rem; 
+  line-height: 2.25rem;
+  background: linear-gradient(135deg, rgb(147, 51, 234), rgb(219, 39, 119));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.register-panel__title {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 4px;
+  letter-spacing: -0.02em;
+  color: rgb(15, 23, 42); // slate-900
+  font-weight: 600;
+}
+
+.register-panel__subtitle {
+  margin-top: 0.5rem; 
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgb(71, 85, 105); // slate-600
+  
+  a {
+    font-weight: 600; 
+    color: rgb(147, 51, 234); // purple-600
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: rgb(126, 34, 206); // purple-700
+    }
+  }
+}
+
+.error-message {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #dc2626;
+  background-color: rgba(220, 38, 38, 0.1);
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border-left: 3px solid #dc2626;
+}
+
+.register-panel__form {
+  margin-top: 1rem; 
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  border: 1px solid rgb(226, 232, 240);
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+  }
+}
+
+.register-panel__fields {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem; 
+  border-radius: 0.375rem; 
+  
+  .ant-form-item {
+    margin-bottom: 4px;
+  }
+  
+  .ant-form-item-label > label {
+    font-weight: 500;
+    color: rgb(51, 65, 85); // slate-700
+  }
+}
+
+.register-panel .ant-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.625rem 0.75rem;
+  background-color: rgb(248, 250, 252); // slate-50
+  color: rgb(15, 23, 42);
+  box-shadow: 0 0 0 1px rgb(226, 232, 240) inset;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.register-panel .ant-input-affix-wrapper {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0;                         
+  background-color: rgb(248, 250, 252);
+  box-shadow: 0 0 0 1px rgb(226, 232, 240) inset;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.register-panel .ant-input-affix-wrapper .ant-input {
+  padding: 0.625rem 0.75rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;     
+  width: 94%;             
+}
+
+.register-panel .ant-input::placeholder,
+.register-panel .ant-input-affix-wrapper input::placeholder {
+  color: rgb(148, 163, 184); // slate-400
+}
+
+.register-panel .ant-input,
+.register-panel .ant-input-affix-wrapper {
+  &:hover {
+    box-shadow: 0 0 0 1px rgb(147, 51, 234) inset;
+    background-color: white;
+  }
+  
+  &:focus,
+  &:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(147, 51, 234);
+    background-color: white;
+    z-index: 10;
+  }
+}
+
+.register-panel__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-panel .ant-checkbox-inner {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  border-color: rgb(203, 213, 225);
+  transition: all 0.2s ease;
+}
+
+.register-panel .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: rgb(147, 51, 234);
+  border-color: rgb(147, 51, 234);
+}
+
+.register-panel .ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  border-color: rgb(147, 51, 234);
+}
+
+.register-panel__forgot {
+  font-size: 0.875rem;
+
+  a {
+    font-weight: 500;
+    color: rgb(147, 51, 234);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: rgb(126, 34, 206);
+      text-decoration: underline;
+    }
+  }
+}
+
+.register-panel__submit {
+  width: 100%;
+}
+
+.register-panel .ant-btn-primary {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgb(147, 51, 234), rgb(126, 34, 206));
+  border: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 rgba(147, 51, 234, 0.3);
+  height: auto;
+
+  &:hover {
+    background: linear-gradient(135deg, rgb(126, 34, 206), rgb(107, 33, 168));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(147, 51, 234, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &:focus {
+    background: linear-gradient(135deg, rgb(147, 51, 234), rgb(126, 34, 206));
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

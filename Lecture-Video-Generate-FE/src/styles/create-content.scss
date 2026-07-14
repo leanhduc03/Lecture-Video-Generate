@@ -1,0 +1,215 @@
+.create-content-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 24px 24px;
+
+  .page-header {
+    margin-bottom: 2rem;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #64748b;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #8b5cf6;
+        
+        .icon {
+          transform: translateX(-4px);
+        }
+      }
+
+      .icon {
+        transition: transform 0.3s;
+      }
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      .title-section {
+        h1 {
+          font-size: 1.875rem;
+          font-weight: bold;
+          color: #1e293b;
+          margin-bottom: 0.25rem;
+        }
+
+        p {
+          color: #64748b;
+          font-size: 1.125rem;
+        }
+      }
+
+      .credits-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.625rem 1.25rem;
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 9999px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+        .credits-info {
+          display: flex;
+          align-items: center;
+          gap: 0.375rem;
+          color: #f59e0b;
+
+          .icon {
+            font-size: 1.25rem;
+          }
+
+          .count {
+            font-weight: bold;
+            color: #1e293b;
+          }
+        }
+
+        .divider {
+          color: #cbd5e1;
+        }
+
+        .plan-name {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: #64748b;
+        }
+
+        .upgrade-btn {
+          margin-left: 0.5rem;
+          font-size: 0.75rem;
+          font-weight: bold;
+          color: #8b5cf6;
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .tabs-container {
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+
+      .tab {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: #64748b;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        white-space: nowrap;
+        position: relative;
+
+        .icon {
+          font-size: 1.25rem;
+        }
+
+        .badge {
+          background: #e2e8f0;
+          color: #64748b;
+          font-size: 0.625rem;
+          padding: 0.125rem 0.375rem;
+          border-radius: 0.25rem;
+          margin-left: 0.25rem;
+          font-weight: bold;
+        }
+
+        .pulse-indicator {
+          position: absolute;
+          top: 0.5rem;
+          right: 0.5rem;
+          display: flex;
+          height: 0.5rem;
+          width: 0.5rem;
+
+          .pulse-ring {
+            position: absolute;
+            display: inline-flex;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            background: #8b5cf6;
+            opacity: 0.75;
+            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+          }
+
+          .pulse-dot {
+            position: relative;
+            display: inline-flex;
+            border-radius: 50%;
+            height: 0.5rem;
+            width: 0.5rem;
+            background: #8b5cf6;
+          }
+        }
+
+        &:hover {
+          color: #1e293b;
+          background: #f1f5f9;
+          border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        &.active {
+          color: #8b5cf6;
+          border-bottom-color: #8b5cf6;
+          background: rgba(139, 92, 246, 0.05);
+          border-radius: 0.5rem 0.5rem 0 0;
+          font-weight: 600;
+
+          .icon {
+            color: #8b5cf6;
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      // Content của từng tab
+    }
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .create-content-page {
+    .page-header {
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}
