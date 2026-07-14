@@ -16,7 +16,7 @@ flowchart LR
     FE --> BE["lecBE (FastAPI)"]
     BE --> DB["MySQL"]
     BE --> CLD["Cloudinary"]
-    BE --> AI["Gemini / lecSlide provider"]
+    BE --> AI["Gemini / lip-sync / text-to-speech / face-swap"]
 ```
 
 ## Cấu trúc repo
